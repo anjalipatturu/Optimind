@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-slate-100 min-h-screen selection:bg-brand-500 selection:text-white transition-colors duration-200;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  @apply bg-white/80 dark:bg-slate-900/75 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 shadow-sm;
+}
+
+.glass-card {
+  @apply bg-white/90 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200/60 dark:border-slate-800/60 shadow-lg rounded-2xl;
+}
+
+.glass-dropdown {
+  @apply bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-200 dark:border-slate-800 shadow-2xl;
+}
+
+/* Gradient accents */
+.gradient-brand {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400;
+}
+
+/* Code Highlighting overrides */
+pre code.hljs {
+  @apply font-mono text-sm leading-relaxed rounded-xl p-4 block overflow-x-auto bg-slate-900 text-slate-100;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700/60 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-600;
+}

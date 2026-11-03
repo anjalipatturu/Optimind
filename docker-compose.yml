@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: optimind-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=prompt_optimizer
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: optimind-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017
+      - DATABASE_NAME=prompt_optimizer
+      - JWT_SECRET=production_optimind_secret_key_2026
+      - JWT_REFRESH_SECRET=production_optimind_refresh_secret_key_2026
+      - FRONTEND_URL=http://localhost:5173
+      - LLM_PROVIDER=mock
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: optimind-frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
+
