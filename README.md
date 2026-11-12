@@ -46,7 +46,7 @@
 
 - **Frontend**: React 18, Vite, Tailwind CSS, Framer Motion, Zustand, Lucide React, Recharts, canvas-confetti, react-markdown, remark-gfm, rehype-highlight, i18next (English, Spanish, French, Hindi, Telugu, Tamil).
 - **Backend**: FastAPI, Python 3.11+, Uvicorn, Pydantic v2, Motor (Async MongoDB), MongoDB GridFS, JWT with bcrypt, APScheduler, slowapi rate limiting, pypdf, python-docx, Pillow, pywebpush.
-- **LLM Abstraction**: Provider-agnostic interface (`LLMProvider`) supporting Google Gemini (`gemini-1.5-flash`, `gemini-1.5-pro`), Anthropic Claude (`claude-3-7-sonnet`), and a high-fidelity local Mock provider for zero-configuration testing.
+- **LLM Abstraction**: Provider-agnostic interface (`LLMProvider`) supporting Google Gemini, Anthropic Claude, and a local Mock provider for zero-configuration testing. Configure a provider API key in `.env` for generated AI responses; Mock mode returns canned demo responses.
 
 ---
 
@@ -140,4 +140,3 @@ pytest backend/tests/ -v
 
 ## 🛡️ License
 MIT License. Built with advanced agentic software architecture for Google Antigravity.
-
